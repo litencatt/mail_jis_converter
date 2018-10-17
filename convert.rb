@@ -5,7 +5,7 @@ def has_transfer_encoding?(header)
 end
 
 unless File.exists?(ARGV[0])
-  puts "file is not exits."
+  puts "File is not exits."
   return
 end
 
