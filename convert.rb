@@ -9,7 +9,13 @@ unless File.exists?(ARGV[0])
   return
 end
 
-header, body = File.read(ARGV[0]).split("\n\n", 2)
+source = File.read(ARGV[0])
+unless source.encoding == Encoding::UTF_8
+  puts "Please input utf-8 encofing file."
+  return
+end
+
+header, body = source.split("\n\n", 2)
 
 converted_header = []
 header.split("\n").each do |line|
