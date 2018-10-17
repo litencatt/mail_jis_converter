@@ -1,0 +1,11 @@
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-2022-jp
+Subject: 日本語件名
+From: from@example.com
+To: to@example.com
+
+test
+てすと
+
+test2
+てすと２
