@@ -5,8 +5,7 @@ unless File.exists?(ARGV[0])
   return
 end
 
-source = File.read(ARGV[0])
-header, body = source.split("\n\n", 2)
+header, body = File.read(ARGV[0]).split("\n\n", 2)
 
 converted_header = []
 header.split("\n").each do |line|
