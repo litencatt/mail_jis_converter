@@ -13,15 +13,18 @@ header, body = File.read(ARGV[0]).split("\n\n", 2)
 
 converted_header = []
 header.split("\n").each do |line|
-  if line.include?("Subject")
+  case
+  when line.include?("Subject")
     converted_header << NKF.nkf("--mime", line)
+  when line.include?("Content-Type")
+    converted_header << line
+    converted_header << "Content-Transfer-Encoding: 7bit" unless has_transfer_encoding?(header)
   else
     converted_header << line
   end
 end
+
+
 puts converted_header
 puts ""
-# Convett Body
 puts NKF.nkf("--oc=iso-2022-jp", body)
-
-
