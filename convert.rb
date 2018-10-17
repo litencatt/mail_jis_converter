@@ -1,5 +1,9 @@
 require 'nkf'
 
+def has_transfer_encoding?(header)
+  @has_transfer_encoding ||= header.include?("Content-Transfer-Encoding: 7bit")
+end
+
 unless File.exists?(ARGV[0])
   puts "file is not exits."
   return
